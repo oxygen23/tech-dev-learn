@@ -1,7 +1,8 @@
-"use client";
 import { ChangeEvent, KeyboardEvent, useState } from "react";
 import { AiOutlineEnter } from "react-icons/ai";
 import { BsSearch } from "react-icons/bs";
+
+import styles from "./Search.module.sass";
 
 const Search: React.FC = () => {
 	const [inputValue, setInputValue] = useState<string>("");
@@ -30,9 +31,11 @@ const Search: React.FC = () => {
 	}
 
 	return (
-		<div className={focused ? "search focused" : "search"}>
-			<div className="search__wrapper">
-				<BsSearch className="search__button" />
+		<div
+			className={focused ? `${styles.search} ${styles.focused}` : styles.search}
+		>
+			<div className={styles.search__wrapper}>
+				<BsSearch className={styles.search__button} />
 				<input
 					value={inputValue}
 					onChange={fnInputValue}
@@ -41,10 +44,10 @@ const Search: React.FC = () => {
 					onBlur={handleBlur}
 					type="text"
 					placeholder="Поиск курсов"
-					className="search__input"
+					className={styles.search__input}
 				/>
 			</div>
-			<button className="search__button" onClick={performSearch}>
+			<button className={styles.search__button} onClick={performSearch}>
 				<AiOutlineEnter />
 			</button>
 		</div>

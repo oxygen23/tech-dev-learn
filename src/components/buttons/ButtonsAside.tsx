@@ -3,7 +3,7 @@ import { useEffect, useState } from "react";
 import { AiOutlineHeart, AiOutlineHome } from "react-icons/ai";
 import { GiProgression } from "react-icons/gi";
 import { HiOutlineViewGridAdd } from "react-icons/hi";
-
+import styles from "./ButtonsAside.module.sass";
 interface ButtonsAsideProps {
 	visible: boolean;
 }
@@ -26,39 +26,62 @@ const ButtonsAside: React.FC<ButtonsAsideProps> = ({ visible }) => {
 	}, [currentPagePath]);
 
 	return (
-		<div className="buttons__absolute">
-			<div className="buttons__block">
+		<div className={styles.buttons__absolute}>
+			<div className={styles.buttons__block}>
 				{visible ? (
 					<div
-						className="active__block"
+						className={styles.active__block}
 						style={
 							page === 0
-								? { top: "-70px" }
+								? { top: "-60px" }
 								: page === 1
-								? { top: "-15px" }
+								? { top: "-5px" }
 								: page === 2
-								? { top: "40px" }
+								? { top: "50px" }
 								: page === 3
-								? { top: "95px" }
+								? { top: "105px" }
 								: undefined
 						}
 					>
-						<div className="active__item_fiol"></div>
-						<div className="active__item_fiol"></div>
-						<div className="active__item_block">
-							<div className="active__item"></div>
-							<div className="active__item"></div>
-							<div className="active__item"></div>
+						<div className={styles.active__wrapper}>
+							<div className={`${styles.active__fiol_block} ${styles.top}`}>
+								<div className={styles.active__fiol_block_fiol} />
+								<div className={styles.active__fiol_block_white} />
+							</div>
+							<div className={styles.active__item_block}>
+								<div className={styles.active__item}></div>
+							</div>
+							<div
+								className={`${styles.active__fiol_block}  ${styles.bottom} `}
+							>
+								<div className={styles.active__fiol_block_fiol} />
+								<div className={styles.active__fiol_block_white} />
+							</div>
 						</div>
 					</div>
 				) : (
-					<div className="active__block">
-						<div className="active__item_fiol" style={{ right: "500px" }}></div>
-						<div className="active__item_fiol" style={{ right: "500px" }}></div>
-						<div className="active__item_block">
-							<div className="active__item" style={{ right: "-200px" }}></div>
-							<div className="active__item" style={{ right: "-200px" }}></div>
-							<div className="active__item" style={{ right: "-200px" }}></div>
+					<div className={styles.active__block}>
+						<div className={styles.active__wrapper}>
+							<div className={`${styles.active__fiol_block}  ${styles.top} `}>
+								<div className={styles.active__fiol_block_fiol} />
+								<div
+									className={styles.active__fiol_block_white}
+									style={{ borderRadius: "32px", bottom: "10px" }}
+								/>
+							</div>
+							<div
+								className={styles.active__item_block}
+								style={{ right: "-100px" }}
+							>
+								<div className={styles.active__item}></div>
+							</div>
+							<div className={`${styles.active__fiol_block} ${styles.bottom}`}>
+								<div className={styles.active__fiol_block_fiol} />
+								<div
+									className={styles.active__fiol_block_white}
+									style={{ borderRadius: "32px", top: "10px" }}
+								/>
+							</div>
 						</div>
 					</div>
 				)}
@@ -69,10 +92,10 @@ const ButtonsAside: React.FC<ButtonsAsideProps> = ({ visible }) => {
 						key={index}
 						className={
 							!visible
-								? "buttons__block-item center"
+								? `${styles.buttons__block_item}  ${styles.center} `
 								: page === index
-								? "buttons__block-item active"
-								: "buttons__block-item"
+								? `${styles.buttons__block_item} ${styles.active}`
+								: styles.buttons__block_item
 						}
 					>
 						{item === buttons[0] ? (
@@ -85,11 +108,11 @@ const ButtonsAside: React.FC<ButtonsAsideProps> = ({ visible }) => {
 							<GiProgression />
 						) : null}
 						{visible ? (
-							<span className="buttons__block-item_text">{item}</span>
+							<span className={styles.buttons__block_item_text}>{item}</span>
 						) : (
 							<span
-								className="buttons__block-item_text"
-								style={{ right: "-300px", zIndex: "-9999" }}
+								className={styles.buttons__block_item_text}
+								style={{ right: "-200px", zIndex: "-9999" }}
 							>
 								{item}
 							</span>

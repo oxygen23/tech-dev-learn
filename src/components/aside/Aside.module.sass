@@ -1,0 +1,85 @@
+$fiol: #503E9D
+$orange: #FB6D3A
+$grey: #B3B6B6
+$greyInput: #F6F6F5
+$fiolMask: #5543A5
+$fiolCircle: #7C6BC3
+.aside
+  position: relative
+  min-width: 300px
+  height: calc(100vh - 48px)
+  display: flex
+  flex-direction: column
+  justify-content: space-between
+  transition: all .3s linear
+  &.noVisible
+    min-width: 100px
+    align-items: center
+    & .logo__svg
+      width: 100%
+      margin: 0 auto
+      right: 3%
+.support
+  &__absolute
+    position: absolute
+    bottom: 0
+  &__block
+    position: relative
+    background-color: $fiolMask
+    padding-top: 32px
+    padding-left: 32px
+    border-radius: 32px
+    width: 236px
+    height: 300px
+    overflow: hidden
+    &_link
+      font-size: 16px
+      color: white
+      background-color: #0088cc
+      border-radius: 20px
+      width: fit-content
+      padding: 5px 30px
+    &.wrapper
+      width: 100%
+      background: transparent
+      padding: 0
+      display: flex
+      align-items: center
+      justify-content: center
+      &.icon
+        width: 56px
+        height: 56px
+        display: flex
+        justify-content: center
+        align-items: center
+        background-color: #5B49A9
+        border-radius: 16px
+        color: $orange
+        font-size: 20px
+
+  &__wrapper
+    display: flex
+    flex-direction: column
+    &_title
+      color: white
+      font-size: 18px
+      margin-bottom: 5px
+    &_suptitle
+      color: white
+      opacity: .4
+      font-size: 15px
+      margin-bottom: 15px
+  &__circle
+    position: absolute
+    content: ''
+    display: block
+    width: 246px
+    height: 246px
+    background-color: $fiolCircle
+    border-radius: 50%
+    bottom: -90px
+    right: -90px
+    &_image
+      position: absolute
+      right: 90px
+      bottom: 60px

@@ -1,0 +1,107 @@
+$fiol: #503E9D
+$orange: #FB6D3A
+$grey: #B3B6B6
+$greyInput: #F6F6F5
+$fiolMask: #5543A5
+$fiolCircle: #7C6BC3
+
+.active
+  &__block
+    position: absolute
+    top: -60px
+    width: 100%
+    transition: top .3s linear
+  &__wrapper
+    width: 100%
+    position: relative
+  &__fiol_block
+    position: absolute
+    display: flex
+    justify-content: flex-end
+    align-items: flex-end
+    right: 0
+    width: 110%
+    height: 100px
+    &_fiol
+      position: relative
+      background-color: $fiol
+      z-index: 20
+      width: 100%
+      height: 100%
+      border-radius: 0 0 32px 0
+      transition: all .3s linear
+    &_white
+      position: absolute
+      z-index: 1
+      bottom: 0
+      right: 0
+      width: 50px
+      height: 50px
+      background-color: white
+      transition: all .1s linear
+    &.top
+      top: -49px
+    &.bottom
+      top: 109px
+    .bottom &_fiol
+      border-radius: 0 32px 0 0
+    .bottom &_white
+      top: 0
+      right: 0
+  &__item
+    position: absolute
+    width: 110%
+    height: 60px
+    background-color: white
+    border-radius: 32px 0 0 32px
+
+    &_block
+      width: 100%
+      position: relative
+      top: 50px
+      right: 30px
+      border-radius: 32px 0 0 32px
+      transition: all .3s linear
+
+.buttons
+  &__absolute
+    width: 100%
+    position: absolute
+    top: 40%
+    transform: translate(0, -50%)
+    right: 0
+  &__block
+    position: relative
+    width: 100%
+    z-index: 0
+    display: flex
+    flex-direction: column
+    align-items: flex-start
+
+    &_item
+      position: relative
+      z-index: 100
+      display: flex
+      align-items: center
+      background: transparent
+      color: white
+      width: 100%
+      height: 40px
+      text-align: left
+      transition: all .3s linear
+      &_text
+        width: fit-content
+        font-size: 18px
+        width: 70%
+        position: absolute
+        right: 30px
+        white-space: nowrap
+        transition: all .3s linear
+      & svg
+        font-size: 30px
+      &:not(:last-child)
+        margin-bottom: 15px
+      &.active
+        color: $orange
+      &.center
+        justify-content: center

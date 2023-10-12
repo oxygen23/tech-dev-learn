@@ -1,10 +1,10 @@
 import Image from "next/image";
-import Link from "next/link";
-import ButtonsAside from "../buttons/ButtonsAside";
-import { FC, useEffect, useState } from "react";
 import { usePathname } from "next/navigation";
+import { FC, useEffect, useState } from "react";
 import { BiSupport } from "react-icons/bi";
-
+import ButtonsAside from "../buttons/ButtonsAside";
+import Logo from "../logo/Logo";
+import styles from "./Aside.module.sass";
 const Aside: FC = () => {
 	const [visible, setVisible] = useState(false);
 	const path = usePathname();
@@ -35,35 +35,30 @@ const Aside: FC = () => {
 		}
 	}, [path]);
 
+	useEffect(() => {
+		const element = document.getElementById("__next");
+		if (element) {
+			element.style.paddingLeft = !visible ? "30px" : "62px";
+		}
+	}, [visible]);
 	return (
-		<aside className={visible ? "aside" : "aside noVisible"}>
-			<div className="logo__block">
-				<Link href="/" className="logo__text">
-					<Image
-						src="/assets/logo.svg"
-						alt="logo"
-						className="logo__svg"
-						width={56}
-						height={56}
-					/>
-					{visible ? (
-						<span>TechDevLearn</span>
-					) : (
-						<span style={{ left: "-300px" }}>TechDevLearn</span>
-					)}
-				</Link>
-			</div>
+		<aside
+			className={visible ? styles.aside : `${styles.aside} ${styles.noVisible}`}
+		>
+			<Logo visible={visible} />
 			<ButtonsAside visible={visible} />
 			{visible ? (
-				<div className="support__absolute">
-					<div className="support__block">
-						<div className="support__wrapper">
-							<span className="support__wrapper_title">Есть предложения?</span>
-							<span className="support__wrapper_suptitle">
+				<div className={styles.support__absolute}>
+					<div className={styles.support__block}>
+						<div className={styles.support__wrapper}>
+							<span className={styles.support__wrapper_title}>
+								Есть предложения?
+							</span>
+							<span className={styles.support__wrapper_suptitle}>
 								Свяжитесь со мной
 							</span>
 							<a
-								className="support__block_link"
+								className={styles.support__block_link}
 								href="https://t.me/oxygenfront"
 								target="_blank"
 								rel="noopener noreferrer"
@@ -71,11 +66,11 @@ const Aside: FC = () => {
 								Телеграм
 							</a>
 						</div>
-						<div className="support__circle">
+						<div className={styles.support__circle}>
 							<Image
 								src="/assets/human_worked.png"
 								alt="decor_png"
-								className="support__circle_image"
+								className={styles.support__circle_image}
 								width={124}
 								height={175}
 							/>
@@ -83,12 +78,12 @@ const Aside: FC = () => {
 					</div>
 				</div>
 			) : (
-				<div className="support__block wrapper">
+				<div className={`${styles.support__block} ${styles.wrapper}`}>
 					<a
 						href="https://t.me/oxygenfront"
 						target="_blank"
 						rel="noopener noreferrer"
-						className="support__block wrapper icon"
+						className={`${styles.support__block} ${styles.wrapper} ${styles.icon}`}
 					>
 						<BiSupport />
 					</a>

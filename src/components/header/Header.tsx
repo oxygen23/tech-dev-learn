@@ -2,12 +2,13 @@ import Link from "next/link";
 import { AiOutlineUser } from "react-icons/ai";
 import Notifications from "./Notifications";
 import { Search } from "..";
+import styles from './Header.module.sass'
 const Header: React.FC = () => {
 	return (
-		<header className="header">
+		<header className={styles.header}>
 			<Search />
-			<div className="header__block">
-				<Link href="/" className="personal__button">
+			<div className={styles.header__block}>
+				<Link href="/" className={styles.personal__button}>
 					<AiOutlineUser />
 				</Link>
 				<Notifications />

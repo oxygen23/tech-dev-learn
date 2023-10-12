@@ -7,35 +7,37 @@ import { AxiosResponse } from "axios";
 import { GetServerSideProps, NextPage } from "next";
 import { NextSeo } from "next-seo";
 
+import styles from './Home.module.sass'
+
 const Home: NextPage = ({
 	unfinishedCourses,
 	popularCourses,
 	popularAuthors
 }: any) => {
 	return (
-		<div className="home">
+		<div className={styles.home}>
 			<NextSeo title="TechDevLearn" />
-			<div className="home__unfinnished">
+			<div className="styles.home__unfinnished">
 				<Title title={"Твои незаконченные курсы"} titleLayer={1}>
-					<button className="home__title_button">
-						<span className="home__title_button_item" />
-						<span className="home__title_button_item" />
-						<span className="home__title_button_item" />
+					<button className={styles.home__title_button}>
+						<span className={styles.home__title_button_item} />
+						<span className={styles.home__title_button_item} />
+						<span className={styles.home__title_button_item} />
 					</button>
 				</Title>
-				<div className="home__unfinnished_block">
+				<div className={styles.home__unfinnished_block}>
 					<UnfinnishedCourses {...unfinishedCourses} />
 				</div>
 			</div>
-			<div className="home__popular">
+			<div className={styles.home__popular}>
 				<Title title={"Популярные авторы и их лучшие курсы"} titleLayer={2}>
-					<button className="home__title_button">
-						<span className="home__title_button_item" />
-						<span className="home__title_button_item" />
-						<span className="home__title_button_item" />
+					<button className={styles.home__title_button}>
+						<span className={styles.home__title_button_item} />
+						<span className={styles.home__title_button_item} />
+						<span className={styles.home__title_button_item} />
 					</button>
 				</Title>
-				<div className="home__authors">
+				<div className={styles.home__authors}>
 					<PopularCourses
 						popularCourses={popularCourses}
 						popularAuthors={popularAuthors}

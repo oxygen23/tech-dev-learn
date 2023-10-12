@@ -1,0 +1,45 @@
+.popular
+  display: flex
+  flex-direction: column
+  align-items: center
+  justify-content: flex-end
+  padding-bottom: 20px
+  position: relative
+  width: 96px
+  height: 150px
+  border-radius: 20px
+  background-size: cover
+  background-position: center
+  overflow: hidden
+  cursor: pointer
+  &:not(:last-child)
+    margin-right: 25px
+
+  &__author
+    padding: 5px
+    width: 60px
+    height: 60px
+    object-fit: cover
+    object-position: center
+    border-radius: 50px
+    border: 3px solid $orange
+
+  &__background
+    object-fit: cover
+    object-position: center
+    transition: all .4s linear
+    background: transparent
+  &__mask
+    position: absolute
+    border-radius: 20px
+    opacity: .5
+    width: 100%
+    height: 100%
+    z-index: 0
+    top: 0
+    left: 0
+    transition: all .4s linear
+
+  &__bottom
+    position: relative
+    z-index: 2

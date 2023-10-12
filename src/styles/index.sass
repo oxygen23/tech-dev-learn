@@ -1,0 +1,29 @@
+@import './components/_all'
+@import url("https://fonts.googleapis.com/css2?family=Poppins&display=swap")
+
+:root
+  --font-poppins: "Poppins", sans-serif
+
+::-webkit-scrollbar
+  width: 10px
+  background-color: $fiolCircle
+  border-radius: 10px 10px 10px 10px
+  overflow: hidden
+  padding-top: 40px
+
+::-webkit-scrollbar-thumb
+  background-color: $orange
+  border-radius: 10px 10px 10px 10px
+
+#__next
+  font-weight: 500
+  font-size: 20px
+  background-color: $fiol
+  font-family: var(--font-poppins)
+  padding: 24px
+  padding-left: 62px
+  display: flex
+  justify-content: space-between
+  transition: all .3s linear
+  &:has(.noVisible)
+    padding-left: 30px

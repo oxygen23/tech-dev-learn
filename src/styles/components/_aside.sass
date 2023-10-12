@@ -1,0 +1,165 @@
+.aside
+  position: relative
+  min-width: 300px
+  height: calc(100vh - 48px)
+  display: flex
+  flex-direction: column
+  justify-content: space-between
+  transition: all .3s linear
+  &.noVisible
+    min-width: 100px
+    align-items: center
+    & .logo__svg
+      width: 100%
+      margin: 0 auto
+      right: 3%
+.active
+  &__block
+    top: -70px
+    width: 100%
+    position: absolute
+    z-index: -2
+    transition: all .3s linear
+  &__item
+    position: absolute
+    right: 0
+    height: 60px
+    width: 100%
+    background: white
+    &_fiol
+      position: absolute
+      right: 0
+      height: 91px
+      width: 100%
+      background-color: $fiol
+      z-index: 2
+      border-radius: 32px
+      transition: right .1s ease-in-out
+      &:nth-child(1)
+        top: -31px
+      &:nth-child(2)
+        top: 120px
+    &_block
+      position: relative
+      right: 0
+    &:nth-child(1)
+      top: 1px
+      border-radius: 32px 32px 0 32px
+      transition: right .1s linear
+      width: 40%
+    &:nth-child(2)
+      top: 60px
+      border-radius: 32px 0 0 32px
+      width: 110%
+      transition: right .1s linear
+
+    &:nth-child(3)
+      transition: right .1s linear
+      top: 119px
+      width: 40%
+      border-radius: 32px 0 32px 32px
+
+.buttons
+  &__absolute
+    width: 100%
+    position: absolute
+    top: 40%
+    transform: translate(0, -50%)
+    right: 0
+  &__block
+    position: relative
+    width: 100%
+    z-index: 0
+    display: flex
+    flex-direction: column
+    align-items: start
+
+    &-item
+      position: relative
+      display: flex
+      align-items: center
+      background: transparent
+      color: white
+      width: 100%
+      height: 40px
+      text-align: left
+      transition: all .3s linear
+      &_text
+        width: fit-content
+        font-size: 18px
+        width: 70%
+        position: absolute
+        right: 30px
+      & svg
+        font-size: 30px
+      &:not(:last-child)
+        margin-bottom: 15px
+      &.active
+        color: $orange
+      &.center
+        justify-content: center
+
+.support
+  &__absolute
+    position: absolute
+    bottom: 0
+  &__block
+    position: relative
+    background-color: $fiolMask
+    padding-top: 32px
+    padding-left: 32px
+    border-radius: 32px
+    width: 236px
+    height: 300px
+    overflow: hidden
+    &_link
+      font-size: 16px
+      color: white
+      background-color: #0088cc
+      border-radius: 20px
+      width: fit-content
+      padding: 5px 30px
+    &.wrapper
+      width: 100%
+      background: transparent
+      padding: 0
+      display: flex
+      align-items: center
+      justify-content: center
+      &.icon
+        width: 56px
+        height: 56px
+        display: flex
+        justify-content: center
+        align-items: center
+        background-color: #5B49A9
+        border-radius: 16px
+        color: $orange
+        font-size: 20px
+
+  &__wrapper
+    display: flex
+    flex-direction: column
+    &_title
+      color: white
+      font-size: 18px
+      margin-bottom: 5px
+    &_suptitle
+      color: white
+      opacity: .4
+      font-size: 15px
+      margin-bottom: 15px
+  &__circle
+    position: absolute
+    content: ''
+    display: block
+    width: 246px
+    height: 246px
+    background-color: $fiolCircle
+    border-radius: 50%
+    bottom: -90px
+    right: -90px
+    &_image
+      position: absolute
+      right: 90px
+      bottom: 60px

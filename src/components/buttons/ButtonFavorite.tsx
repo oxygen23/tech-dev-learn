@@ -1,11 +1,10 @@
-"use client";
 import { selectFavorites } from "@/redux/slices/favoritesCourses";
+import { RootCourse } from "@/types/Course";
+import { PreviewCourse } from "@/types/PreviewCourse";
 import { useEffect, useState } from "react";
 import { AiFillHeart, AiOutlineHeart } from "react-icons/ai";
 import { useSelector } from "react-redux";
 import styles from "./ButtonFavorite.module.sass";
-import { PreviewCourse } from "@/types/PreviewCourse";
-import { RootCourse } from "@/types/Course";
 
 const ButtonFavorites: React.FC<PreviewCourse> = ({ fnFavorite, item }) => {
 	const [isFavorite, setIsFavorite] = useState(false);
@@ -14,7 +13,7 @@ const ButtonFavorites: React.FC<PreviewCourse> = ({ fnFavorite, item }) => {
 	useEffect(() => {
 		const foundCourse = favorites.find(
 			(favCourse: RootCourse) => favCourse.id === item.id
-		); 
+		);
 		setIsFavorite(!!foundCourse);
 	}, [favorites, item.id]);
 

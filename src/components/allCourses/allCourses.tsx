@@ -1,6 +1,5 @@
 import { RootCourse } from "@/types/Course";
-import Title from "../title/Title";
-import { PreviewCourse } from "..";
+import { PreviewCourse, Title } from "..";
 
 const AllCourses: React.FC<any> = ({ allCourses }) => {
 	const handleChangeFavorite = () => {

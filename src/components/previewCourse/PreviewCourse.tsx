@@ -1,9 +1,9 @@
-import ButtonFavorite from "@/components/buttons/ButtonFavorite";
 import { PreviewCourse } from "@/types/PreviewCourse";
 import Image from "next/image";
 import { FC } from "react";
 import styles from "./PrevewCourse.module.sass";
 import Link from "next/link";
+import { ButtonFavorite } from "..";
 const PreviewCourse: FC<PreviewCourse> = ({ item, fnFavorite }) => {
 	return (
 		<Link href={`/course/${item.id}`} className={styles.preview}>

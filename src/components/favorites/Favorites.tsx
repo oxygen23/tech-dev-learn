@@ -1,13 +1,6 @@
-"use client";
-import {
-	changeFavorite,
-	selectFavorites,
-} from "@/redux/slices/favoritesCourses";
-import { useSelector } from "react-redux";
-import { PreviewCourse } from "..";
-import Title from "../title/Title";
-import { RootCourse } from "@/types/Course";
+
 import { FC } from "react";
+import { Title } from "..";
 
 const Favorites: FC = () => {
 	// const dispatch = useAppDispatch();

@@ -1,6 +1,5 @@
 import axios from "@/axios";
-import { PopularCourses, UnfinnishedCourses } from "@/components";
-import Title from "@/components/title/Title";
+import { PopularCourses, Title, UnfinnishedCourses } from "@/components";
 import { wrapper } from "@/redux/store";
 import { RootUser } from "@/types/User";
 import { AxiosResponse } from "axios";

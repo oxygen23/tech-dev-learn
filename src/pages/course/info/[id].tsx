@@ -1,7 +1,7 @@
-import { NextPage } from 'next'
+import { NextPage } from "next";
 
 const InfoPage: NextPage = () => {
   return <div>InfoPage</div>;
-}
+};
 
-export default InfoPage
+export default InfoPage;

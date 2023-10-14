@@ -1,7 +1,7 @@
-import { FC } from 'react'
+import { FC } from "react";
 
 const MainLesson: FC = () => {
-  return <div>MainLesson</div>
-}
+  return <div>MainLesson</div>;
+};
 
-export default MainLesson
+export default MainLesson;

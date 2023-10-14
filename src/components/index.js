@@ -2,6 +2,7 @@ export { default as AllCourses } from "@/components/allCourses/AllCourses";
 export { default as Aside } from "@/components/aside/Aside";
 export { default as ButtonFavorite } from "@/components/buttons/ButtonFavorite";
 export { default as ButtonsAside } from "@/components/buttons/ButtonsAside";
+export { default as CourseInfoBlock } from "@/components/courseInfoBlock/CourseInfoBlock";
 export { default as Favorites } from "@/components/favorites/Favorites";
 export { default as Header } from "@/components/header/Header";
 export { default as Logo } from "@/components/logo/Logo";

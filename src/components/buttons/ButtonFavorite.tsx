@@ -1,31 +1,38 @@
 import { selectFavorites } from "@/redux/slices/favoritesCourses";
-import { RootCourse } from "@/types/Course";
-import { PreviewCourse } from "@/types/PreviewCourse";
+import { Course } from "@/types/Course";
 import { useEffect, useState } from "react";
 import { AiFillHeart, AiOutlineHeart } from "react-icons/ai";
 import { useSelector } from "react-redux";
 import styles from "./ButtonFavorite.module.sass";
 
-const ButtonFavorites: React.FC<PreviewCourse> = ({ fnFavorite, item }) => {
-	const [isFavorite, setIsFavorite] = useState(false);
-	const { favorites } = useSelector(selectFavorites);
+interface ButtonsFavoriteProps {
+  fnFavorite: (item: Course) => void;
+  item: Course;
+}
 
-	useEffect(() => {
-		const foundCourse = favorites.find(
-			(favCourse: RootCourse) => favCourse.id === item.id
-		);
-		setIsFavorite(!!foundCourse);
-	}, [favorites, item.id]);
+const ButtonFavorites: React.FC<ButtonsFavoriteProps> = ({
+  fnFavorite,
+  item,
+}) => {
+  const [isFavorite, setIsFavorite] = useState(false);
+  const { favorites } = useSelector(selectFavorites);
 
-	return (
-		<button onClick={() => fnFavorite(item)} className={styles.button}>
-			{isFavorite ? (
-				<AiFillHeart className={styles.isFavorite} />
-			) : (
-				<AiOutlineHeart />
-			)}
-		</button>
-	);
+  useEffect(() => {
+    const foundCourse = favorites.find(
+      (favCourse: Course) => favCourse.id === item.id
+    );
+    setIsFavorite(!!foundCourse);
+  }, [favorites, item.id]);
+
+  return (
+    <button onClick={() => fnFavorite(item)} className={styles.button}>
+      {isFavorite ? (
+        <AiFillHeart className={styles.isFavorite} />
+      ) : (
+        <AiOutlineHeart />
+      )}
+    </button>
+  );
 };
 
 export default ButtonFavorites;

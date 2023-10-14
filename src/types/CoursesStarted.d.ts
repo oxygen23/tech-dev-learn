@@ -1,6 +1,6 @@
 import { LessonsWrapper } from "./LessonWrapper";
 
-export interface Course {
+export interface CoursesStarted {
 	id: number;
 	author: string;
 	author_id: number;
@@ -9,6 +9,7 @@ export interface Course {
 	course_image: string;
 	title: string;
 	description: string;
+	course_time: number;
 	course_likes: number;
 	course_dislikes: number;
 	favorite_count_courses: number;

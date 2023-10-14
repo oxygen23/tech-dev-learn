@@ -1,19 +1,18 @@
-
 import { FC } from "react";
 import { Title } from "..";
 
 const Favorites: FC = () => {
-	// const dispatch = useAppDispatch();
-	// const { favorites } = useSelector(selectFavorites);
+  // const dispatch = useAppDispatch();
+  // const { favorites } = useSelector(selectFavorites);
 
-	// function handleChangeFavorite(course: RootCourse) {
-	// 	dispatch(changeFavorite(course));
-	// }
-	return (
-		<>
-			<Title title={"Твои избранныне курсы"} titleLayer={1}></Title>
-			<div className="wrapper">
-				{/* {favorites?.length > 0 ? (
+  // function handleChangeFavorite(course: RootCourse) {
+  // 	dispatch(changeFavorite(course));
+  // }
+  return (
+    <>
+      <Title title={"Твои избранныне курсы"} titleLayer={1} />
+      <div className="wrapper">
+        {/* {favorites?.length > 0 ? (
 					favorites.map((item: RootCourse, index: number) => (
 						<PreviewCourse
 							key={index}
@@ -22,12 +21,12 @@ const Favorites: FC = () => {
 						/>
 					))
 				) : (
-					<Title title={"У тебя нет курсов в избранном"} titleLayer={2}></Title>
+					<Title title={"У тебя нет курсов в избранном"} titleLayer={2} />
 				)} */}
-				Избранное
-			</div>
-		</>
-	);
+        Избранное
+      </div>
+    </>
+  );
 };
 
 export default Favorites;

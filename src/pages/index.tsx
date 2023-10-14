@@ -1,12 +1,12 @@
 import axios from "@/axios";
 import { PopularCourses, Title, UnfinnishedCourses } from "@/components";
 import { wrapper } from "@/redux/store";
-import { RootUser } from "@/types/User";
 import { AxiosResponse } from "axios";
 import { GetServerSideProps, NextPage } from "next";
 import { NextSeo } from "next-seo";
 
 import styles from './Home.module.sass'
+import { User } from "@/types/User";
 
 const Home: NextPage = ({
 	unfinishedCourses,
@@ -49,11 +49,11 @@ const Home: NextPage = ({
 
 export const getServerSideProps: GetServerSideProps =
 	wrapper.getServerSideProps(() => async () => {
-		const userData: AxiosResponse<RootUser> = await axios.get("/user");
-		const popularCoursesData: AxiosResponse<RootUser> = await axios.get(
+		const userData: AxiosResponse<User> = await axios.get("/user");
+		const popularCoursesData: AxiosResponse<User> = await axios.get(
 			"/authors"
 		);
-		const popularsAuthors: AxiosResponse<RootUser> = await axios.get(
+		const popularsAuthors: AxiosResponse<User> = await axios.get(
 			"/authors?_embed=author_courses&_sort=likes&_order=desc"
 		);
 		return {

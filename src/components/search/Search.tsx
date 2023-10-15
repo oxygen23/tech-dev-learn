@@ -1,11 +1,11 @@
-import { ChangeEvent, KeyboardEvent, useState } from "react";
-import { AiOutlineEnter } from "react-icons/ai";
-import { BsSearch } from "react-icons/bs";
+import { ChangeEvent, KeyboardEvent, useState } from 'react';
+import { AiOutlineEnter } from 'react-icons/ai';
+import { BsSearch } from 'react-icons/bs';
 
-import styles from "./Search.module.sass";
+import styles from './Search.module.sass';
 
 const Search: React.FC = () => {
-  const [inputValue, setInputValue] = useState<string>("");
+  const [inputValue, setInputValue] = useState<string>('');
   const [focused, setIsFocused] = useState<boolean>(false);
 
   function fnInputValue(event: ChangeEvent<HTMLInputElement>) {
@@ -13,11 +13,11 @@ const Search: React.FC = () => {
   }
 
   function performSearch() {
-    console.log("Поиск");
+    console.log('Поиск');
   }
 
   function handleKeyDown(event: KeyboardEvent<HTMLInputElement>) {
-    if (event.key === "Enter") {
+    if (event.key === 'Enter') {
       performSearch();
     }
   }
@@ -47,7 +47,11 @@ const Search: React.FC = () => {
           className={styles.search__input}
         />
       </div>
-      <button className={styles.search__button} onClick={performSearch}>
+      <button
+        type="button"
+        className={styles.search__button}
+        onClick={performSearch}
+      >
         <AiOutlineEnter />
       </button>
     </div>

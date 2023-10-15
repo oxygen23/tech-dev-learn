@@ -1,5 +1,6 @@
-import { Head, Html, Main, NextScript } from "next/document";
-import { FC } from "react";
+import { Head, Html, Main, NextScript } from 'next/document';
+import { FC } from 'react';
+
 const Document: FC = () => {
   return (
     <Html lang="ru">

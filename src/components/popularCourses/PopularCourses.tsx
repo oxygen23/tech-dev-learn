@@ -1,9 +1,14 @@
-import { Author } from "@/types/Author";
-import { Course } from "@/types/Course";
-import PopularCourse from "./PopularCourse";
+import { Author } from '@/types/Author';
+import { Course } from '@/types/Course';
+import { FC } from 'react';
+import PopularCourse from './PopularCourse';
 
-export default function PopularCourses({ popularCourses }: any): JSX.Element {
-  let newCourses: Course[] = [];
+interface PopularCoursesProps {
+  popularCourses: Course[];
+}
+
+const PopularCourses: FC<PopularCoursesProps> = ({ popularCourses }) => {
+  const newCourses: Course[] = [];
   popularCourses.forEach((author: Author) => {
     author.author_courses.forEach((course: Course) => {
       if (!newCourses.some((prevCourse) => prevCourse.id === course.id)) {
@@ -17,10 +22,12 @@ export default function PopularCourses({ popularCourses }: any): JSX.Element {
     <>
       {newCourses.map((item: Course, index: number) => {
         const author: Author | undefined = popularCourses.find(
-          (author: Author) => author.author_id === item.author_id
+          (authorCourse: Author) => authorCourse.author_id === item.author_id,
         );
         return author ? <PopularCourse key={index} {...item} /> : null;
       })}
     </>
   );
-}
+};
+
+export default PopularCourses;

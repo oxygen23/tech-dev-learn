@@ -1,8 +1,9 @@
-import Link from "next/link";
-import { AiOutlineUser } from "react-icons/ai";
-import { Search } from "..";
-import styles from "./Header.module.sass";
-import Notifications from "./Notifications";
+import Link from 'next/link';
+import { AiOutlineUser } from 'react-icons/ai';
+import styles from './Header.module.sass';
+import Notifications from './Notifications';
+import Search from '../search/Search';
+
 const Header: React.FC = () => {
   return (
     <header className={styles.header}>

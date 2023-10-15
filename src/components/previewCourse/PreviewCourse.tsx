@@ -1,13 +1,13 @@
-import { Course } from "@/types/Course";
-import Image from "next/image";
-import Link from "next/link";
-import { FC } from "react";
-import { ButtonFavorite } from "..";
-import styles from "./PrevewCourse.module.sass";
+import { Course } from '@/types/Course';
+import Image from 'next/image';
+import Link from 'next/link';
+import { FC } from 'react';
+import styles from './PrevewCourse.module.sass';
+import ButtonFavorites from '../buttons/ButtonFavorite';
 
 interface PreviewCourseProps {
   item: Course;
-  fnFavorite: () => void;
+  fnFavorite: (course: Course) => void;
 }
 
 const PreviewCourse: FC<PreviewCourseProps> = ({ item, fnFavorite }) => {
@@ -23,9 +23,9 @@ const PreviewCourse: FC<PreviewCourseProps> = ({ item, fnFavorite }) => {
         className={styles.preview__mask}
         style={{
           background:
-            "linear-gradient(180deg, #000 0%, rgba(0, 0, 0, 0.50) 51.04%, #000 100%)",
+            'linear-gradient(180deg, #000 0%, rgba(0, 0, 0, 0.50) 51.04%, #000 100%)',
         }}
-      ></div>
+      />
 
       <div className={styles.preview__content}>
         <div className={styles.preview__content_header}>
@@ -47,8 +47,8 @@ const PreviewCourse: FC<PreviewCourseProps> = ({ item, fnFavorite }) => {
             </div>
           </div>
           <div className={styles.preview__content_header_block}>
-            <ButtonFavorite fnFavorite={fnFavorite} item={item} />
-            <div className={styles.preview__content_header_block_time}></div>
+            <ButtonFavorites fnFavorite={() => fnFavorite} item={item} />
+            <div className={styles.preview__content_header_block_time} />
           </div>
         </div>
         <p className={styles.preview__content_title}>{item.title}</p>

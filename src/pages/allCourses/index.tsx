@@ -1,9 +1,10 @@
-import axios from "@/axios";
-import { AllCourses } from "@/components";
-import { wrapper } from "@/redux/store";
-import { Course } from "@/types/Course";
-import { NextPage } from "next";
-import { NextSeo } from "next-seo";
+import AllCourses from '@/components/allCourses/AllCourses';
+import { wrapper } from '@/redux/store';
+import { Course } from '@/types/Course';
+import { NextPage } from 'next';
+import { NextSeo } from 'next-seo';
+import axios from '@/axios.js';
+import { AxiosResponse } from 'axios';
 
 interface AllCoursesProps {
   allCourses: Course[];
@@ -19,10 +20,11 @@ const AllCoursesPage: NextPage<AllCoursesProps> = ({ allCourses }) => {
 };
 
 export const getServerSideProps = wrapper.getServerSideProps(() => async () => {
-  const { data } = await axios.get("/courses");
+  const response: AxiosResponse<Course[]> = await axios.get('/courses');
+  const { data }: { data?: Course[] } = response;
   return {
     props: {
-      allCourses: data,
+      allCourses: data || [],
     },
   };
 });

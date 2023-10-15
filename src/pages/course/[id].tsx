@@ -1,12 +1,15 @@
-import axios from "@/axios";
-import { CourseInfoBlock, Title } from "@/components";
-import { wrapper } from "@/redux/store";
-import { Course } from "@/types/Course";
-import { NextPage } from "next";
-import { NextSeo } from "next-seo";
-import { useState } from "react";
-import styles from "./Course.module.sass";
-import LessonsList from "./lessonsList/LessonsList";
+import axios from '@/axios.js';
+import { wrapper } from '@/redux/store';
+import { Course } from '@/types/Course';
+import { NextPage } from 'next';
+import { NextSeo } from 'next-seo';
+import { useState } from 'react';
+import Title from '@/components/title/Title';
+import CourseInfoBlock from '@/components/courseInfoBlock/CourseInfoBlock';
+import { AxiosResponse } from 'axios';
+import styles from './Course.module.sass';
+import LessonsList from './lessonsList/LessonsList';
+
 interface CoursePageProps {
   course: Course;
 }
@@ -25,7 +28,7 @@ const CoursePage: NextPage<CoursePageProps> = ({ course }) => {
             fontSize={40}
             marginBottom={28}
           />
-          <div className={styles.empty__block}></div>
+          <div className={styles.empty__block} />
           <CourseInfoBlock course={course} />
         </div>
         <div className={styles.wrapper_right}>
@@ -42,11 +45,13 @@ export const getServerSideProps = wrapper.getServerSideProps(
   () => async (context) => {
     const { params } = context;
     let id;
-    let data = null;
+    let data: Course | null = null;
 
     if (params && params.id) {
       id = params.id;
-      const response = await axios.get(`/courses/${id}`);
+      const response: AxiosResponse<Course> = await axios.get(
+        `/courses/${Number(id)}`,
+      );
       data = response.data;
     }
     return {
@@ -54,5 +59,5 @@ export const getServerSideProps = wrapper.getServerSideProps(
         course: data,
       },
     };
-  }
+  },
 );

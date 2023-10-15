@@ -1,33 +1,22 @@
-import Image from "next/image";
-import { usePathname } from "next/navigation";
-import { FC, useEffect, useState } from "react";
-import { BiSupport } from "react-icons/bi";
-import ButtonsAside from "../buttons/ButtonsAside";
-import Logo from "../logo/Logo";
-import styles from "./Aside.module.sass";
+import Image from 'next/image';
+import { usePathname } from 'next/navigation';
+import { FC, useEffect, useState } from 'react';
+import { BiSupport } from 'react-icons/bi';
+import ButtonsAside from '../buttons/ButtonsAside';
+import Logo from '../logo/Logo';
+import styles from './Aside.module.sass';
+// import useWindowWidth from "@/hooks/useWindowWidth";
 const Aside: FC = () => {
   const [visible, setVisible] = useState(false);
   const path = usePathname();
-  const [windowWidth, setWindowWidth] = useState<number>(0);
-
-  useEffect(() => {
-    setWindowWidth(window.innerWidth);
-  }, []);
-
-  useEffect(() => {
-    function handleResize() {
-      setWindowWidth(window.innerWidth);
-    }
-    window.addEventListener("resize", handleResize);
-    return () => window.removeEventListener("resize", handleResize);
-  }, []);
+  // const windowWidth = useWindowWidth();
 
   useEffect(() => {
     if (
-      path === "/favorites" ||
-      path === "/allCourses" ||
-      path === "/progress" ||
-      path === "/"
+      path === '/favorites' ||
+      path === '/allCourses' ||
+      path === '/progress' ||
+      path === '/'
     ) {
       setVisible(true);
     } else {
@@ -36,9 +25,9 @@ const Aside: FC = () => {
   }, [path]);
 
   useEffect(() => {
-    const element = document.getElementById("__next");
+    const element = document.getElementById('__next');
     if (element) {
-      element.style.paddingLeft = !visible ? "30px" : "62px";
+      element.style.paddingLeft = !visible ? '30px' : '62px';
     }
   }, [visible]);
   return (

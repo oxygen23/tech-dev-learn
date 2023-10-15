@@ -1,8 +1,9 @@
-import Title from "@/components/title/Title";
-import { LessonsWrapper } from "@/types/LessonWrapper";
-import { FC } from "react";
-import styles from "./LessonsList.module.sass";
-import SubLessonsWrapper from "./lessons/SubLessonsWrapper";
+import Title from '@/components/title/Title';
+import { LessonsWrapper } from '@/types/LessonWrapper';
+import { FC } from 'react';
+import styles from './LessonsList.module.sass';
+import SubLessonsWrapper from './lessons/SubLessonsWrapper';
+
 interface LessonsComp {
   lessonsList: LessonsWrapper[];
 }

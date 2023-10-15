@@ -1,16 +1,16 @@
-import { usePathname } from "next/navigation";
-import { useEffect } from "react";
-import { ChildrenProps } from "./Utils";
+import { usePathname } from 'next/navigation';
+import { useEffect } from 'react';
+import { ChildrenProps } from './Utils';
 
 const PageWrapper = ({ children }: ChildrenProps): JSX.Element => {
-	const path = usePathname();
+  const path = usePathname();
 
-	useEffect(() => {
-		// Сохраняем текущий путь страницы в localStorage
-		localStorage.setItem("currentPagePath", path);
-	}, [path]);
+  useEffect(() => {
+    // Сохраняем текущий путь страницы в localStorage
+    localStorage.setItem('currentPagePath', path);
+  }, [path]);
 
-	return <>{children}</>;
+  return <>{children}</>;
 };
 
 export default PageWrapper;

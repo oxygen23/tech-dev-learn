@@ -1,4 +1,4 @@
-import { NextPage } from "next";
+import { NextPage } from 'next';
 
 const InfoPage: NextPage = () => {
   return <div>InfoPage</div>;

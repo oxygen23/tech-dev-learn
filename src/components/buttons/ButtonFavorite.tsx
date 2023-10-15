@@ -1,9 +1,9 @@
-import { selectFavorites } from "@/redux/slices/favoritesCourses";
-import { Course } from "@/types/Course";
-import { useEffect, useState } from "react";
-import { AiFillHeart, AiOutlineHeart } from "react-icons/ai";
-import { useSelector } from "react-redux";
-import styles from "./ButtonFavorite.module.sass";
+import { selectFavorites } from '@/redux/slices/favoritesCourses';
+import { Course } from '@/types/Course';
+import { useEffect, useState } from 'react';
+import { AiFillHeart, AiOutlineHeart } from 'react-icons/ai';
+import { useSelector } from 'react-redux';
+import styles from './ButtonFavorite.module.sass';
 
 interface ButtonsFavoriteProps {
   fnFavorite: (item: Course) => void;
@@ -19,13 +19,17 @@ const ButtonFavorites: React.FC<ButtonsFavoriteProps> = ({
 
   useEffect(() => {
     const foundCourse = favorites.find(
-      (favCourse: Course) => favCourse.id === item.id
+      (favCourse: Course) => favCourse.id === item.id,
     );
     setIsFavorite(!!foundCourse);
   }, [favorites, item.id]);
 
   return (
-    <button onClick={() => fnFavorite(item)} className={styles.button}>
+    <button
+      type="button"
+      onClick={() => fnFavorite(item)}
+      className={styles.button}
+    >
       {isFavorite ? (
         <AiFillHeart className={styles.isFavorite} />
       ) : (

@@ -1,16 +1,16 @@
-import { FC } from "react";
+import { FC } from 'react';
 
-import { Course } from "@/types/Course";
-import Image from "next/image";
-import { AiOutlineHeart, AiOutlineLike } from "react-icons/ai";
-import { BiDislike } from "react-icons/bi";
-import { Title } from "..";
-import styles from "./CourseInfoBlock.module.sass";
+import { Course } from '@/types/Course';
+import Image from 'next/image';
+import { AiOutlineHeart, AiOutlineLike } from 'react-icons/ai';
+import { BiDislike } from 'react-icons/bi';
+import styles from './CourseInfoBlock.module.sass';
+import Title from '../title/Title';
 
 interface CoursePageProps {
   course: Course;
 }
-const CourseTitleBlock: FC<CoursePageProps> = ({ course }) => {
+const CourseInfoBlock: FC<CoursePageProps> = ({ course }) => {
   return (
     <div className={styles.author__block}>
       <div className={styles.author__block_left}>
@@ -43,4 +43,4 @@ const CourseTitleBlock: FC<CoursePageProps> = ({ course }) => {
   );
 };
 
-export default CourseTitleBlock;
+export default CourseInfoBlock;

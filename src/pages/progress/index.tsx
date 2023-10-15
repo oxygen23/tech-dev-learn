@@ -1,5 +1,6 @@
-import { NextPage } from "next";
-import { NextSeo } from "next-seo";
+import { NextPage } from 'next';
+import { NextSeo } from 'next-seo';
+
 const Progress: NextPage = () => {
   return (
     <>

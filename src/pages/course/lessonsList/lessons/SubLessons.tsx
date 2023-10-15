@@ -1,12 +1,19 @@
-import { Lesson } from "@/types/Lesson";
-import { NextPage } from "next";
+import { Lesson } from '@/types/Lesson';
+import { FC } from 'react';
+import styles from './SubLesson.module.sass';
 
 interface SublessonsComp {
   sublesson: Lesson;
+  id: number;
 }
 
-const SubLessons: NextPage<SublessonsComp> = ({ sublesson }) => {
-  return <div>{sublesson.title}</div>;
+const SubLessons: FC<SublessonsComp> = ({ sublesson, id }) => {
+  console.log(sublesson);
+  return (
+    <div className={styles.wrapper}>
+      Урок {id}.{sublesson.id}
+    </div>
+  );
 };
 
 export default SubLessons;

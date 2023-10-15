@@ -1,23 +1,12 @@
-import { Course } from "@/types/Course";
-import { CoursesStarted } from "@/types/CoursesStarted";
-import { User } from "@/types/User";
-import { FC, useEffect, useState } from "react";
-import { PreviewCourse } from "..";
+// import useWindowWidth from "@/hooks/useWindowWidth";
+import { Course } from '@/types/Course';
+import { CoursesStarted } from '@/types/CoursesStarted';
+import { User } from '@/types/User';
+import { FC } from 'react';
+import PreviewCourse from '../previewCourse/PreviewCourse';
 
 const UnfinishedCourses: FC<User> = ({ courses_started }) => {
-  const [windowWidth, setWindowWidth] = useState<number | null>(null);
-
-  useEffect(() => {
-    setWindowWidth(window.innerWidth);
-  }, []);
-
-  useEffect(() => {
-    function handleResize() {
-      setWindowWidth(window.innerWidth);
-    }
-    window.addEventListener("resize", handleResize);
-    return () => window.removeEventListener("resize", handleResize);
-  }, [windowWidth]);
+  // const windowWidth = useWindowWidth();
 
   function handleChangeFavorite(course: Course) {
     console.log(123);

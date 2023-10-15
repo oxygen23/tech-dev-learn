@@ -1,7 +1,8 @@
-import Image from "next/image";
-import Link from "next/link";
-import { FC } from "react";
-import styles from "./Logo.module.sass";
+import Image from 'next/image';
+import Link from 'next/link';
+import { FC } from 'react';
+import styles from './Logo.module.sass';
+
 const Logo: FC<any> = ({ visible }) => {
   return (
     <div className={styles.logo__block}>
@@ -14,14 +15,14 @@ const Logo: FC<any> = ({ visible }) => {
           height={56}
           style={
             !visible
-              ? { width: "100%", margin: "0 auto", right: "3%" }
+              ? { width: '100%', margin: '0 auto', right: '3%' }
               : undefined
           }
         />
         {visible ? (
           <span>TechDevLearn</span>
         ) : (
-          <span style={{ left: "-300px" }}>TechDevLearn</span>
+          <span style={{ left: '-300px' }}>TechDevLearn</span>
         )}
       </Link>
     </div>

@@ -1,5 +1,6 @@
-import { Course } from "@/types/Course";
-import { PreviewCourse, Title } from "..";
+import { Course } from '@/types/Course';
+import PreviewCourse from '../previewCourse/PreviewCourse';
+import Title from '../title/Title';
 
 const AllCourses: React.FC<any> = ({ allCourses }) => {
   const handleChangeFavorite = () => {
@@ -7,7 +8,7 @@ const AllCourses: React.FC<any> = ({ allCourses }) => {
   };
   return (
     <>
-      <Title titleLayer={1} title={"Все курсы"} />
+      <Title titleLayer={1} title="Все курсы" />
       <div className="wrapper allCourses">
         {allCourses.map((item: Course, index: number) => (
           <PreviewCourse

@@ -1,5 +1,5 @@
-import { FC } from "react";
-import { Title } from "..";
+import { FC } from 'react';
+import Title from '../title/Title';
 
 const Favorites: FC = () => {
   // const dispatch = useAppDispatch();
@@ -10,7 +10,7 @@ const Favorites: FC = () => {
   // }
   return (
     <>
-      <Title title={"Твои избранныне курсы"} titleLayer={1} />
+      <Title title="Твои избранныне курсы" titleLayer={1} />
       <div className="wrapper">
         {/* {favorites?.length > 0 ? (
 					favorites.map((item: RootCourse, index: number) => (

@@ -6,9 +6,15 @@ import SubLessonsWrapper from './lessons/SubLessonsWrapper';
 
 interface LessonsComp {
   lessonsList: LessonsWrapper[];
+  fnCurrentLesson: (id: number) => void;
+  fnCurrentSubLesson: (id: number) => void;
 }
 
-const LessonsList: FC<LessonsComp> = ({ lessonsList }) => {
+const LessonsList: FC<LessonsComp> = ({
+  lessonsList,
+  fnCurrentLesson,
+  fnCurrentSubLesson,
+}) => {
   return (
     <div>
       <Title title="Уроки" titleLayer={1} fontSize={40} marginBottom={28} />
@@ -18,6 +24,8 @@ const LessonsList: FC<LessonsComp> = ({ lessonsList }) => {
             lesson={item}
             key={index}
             countingLesson={index + 1}
+            fnCurrentLesson={fnCurrentLesson}
+            fnCurrentSubLesson={fnCurrentSubLesson}
           />
         ))}
       </div>

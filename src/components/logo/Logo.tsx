@@ -3,7 +3,11 @@ import Link from 'next/link';
 import { FC } from 'react';
 import styles from './Logo.module.sass';
 
-const Logo: FC<any> = ({ visible }) => {
+interface LogoProps {
+  visible: boolean;
+}
+
+const Logo: FC<LogoProps> = ({ visible }) => {
   return (
     <div className={styles.logo__block}>
       <Link href="/" className={styles.logo__text}>

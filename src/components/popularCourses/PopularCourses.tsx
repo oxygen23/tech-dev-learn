@@ -4,7 +4,7 @@ import { FC } from 'react';
 import PopularCourse from './PopularCourse';
 
 interface PopularCoursesProps {
-  popularCourses: Course[];
+  popularCourses: Author[];
 }
 
 const PopularCourses: FC<PopularCoursesProps> = ({ popularCourses }) => {

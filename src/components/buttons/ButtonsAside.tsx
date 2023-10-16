@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import { useEffect, useState } from 'react';
+import { useEffect, useMemo, useState } from 'react';
 import { AiOutlineHeart, AiOutlineHome } from 'react-icons/ai';
 import { GiProgression } from 'react-icons/gi';
 import { HiOutlineViewGridAdd } from 'react-icons/hi';
@@ -16,7 +16,10 @@ const ButtonsAside: React.FC<ButtonsAsideProps> = ({ visible }) => {
     'Избранные курсы',
     'Прогресс',
   ];
-  const links = ['/', '/allCourses', '/favorites', '/progress'];
+  const links = useMemo(
+    () => ['/', '/allCourses', '/favorites', '/progress'],
+    [],
+  );
   const pageStyles: { [key: number]: { top: string } } = {
     0: { top: '-60px' },
     1: { top: '-5px' },
@@ -30,7 +33,7 @@ const ButtonsAside: React.FC<ButtonsAsideProps> = ({ visible }) => {
     const savedPagePath = localStorage.getItem('currentPagePath');
     setCurrentPagePath(savedPagePath || '');
     setPage(links.indexOf(currentPagePath));
-  }, [currentPagePath]);
+  }, [currentPagePath, links]);
 
   const renderIcons = (item: string) => {
     if (item === buttons[0]) {

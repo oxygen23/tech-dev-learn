@@ -12,9 +12,7 @@ const Search: React.FC = () => {
     setInputValue(event.target.value);
   }
 
-  function performSearch() {
-    console.log('Поиск');
-  }
+  function performSearch() {}
 
   function handleKeyDown(event: KeyboardEvent<HTMLInputElement>) {
     if (event.key === 'Enter') {

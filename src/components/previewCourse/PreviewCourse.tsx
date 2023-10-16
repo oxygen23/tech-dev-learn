@@ -7,10 +7,9 @@ import ButtonFavorites from '../buttons/ButtonFavorite';
 
 interface PreviewCourseProps {
   item: Course;
-  fnFavorite: (course: Course) => void;
 }
 
-const PreviewCourse: FC<PreviewCourseProps> = ({ item, fnFavorite }) => {
+const PreviewCourse: FC<PreviewCourseProps> = ({ item }) => {
   return (
     <Link href={`/course/${item.id}`} className={styles.preview}>
       <Image
@@ -47,7 +46,7 @@ const PreviewCourse: FC<PreviewCourseProps> = ({ item, fnFavorite }) => {
             </div>
           </div>
           <div className={styles.preview__content_header_block}>
-            <ButtonFavorites fnFavorite={() => fnFavorite} item={item} />
+            <ButtonFavorites item={item} />
             <div className={styles.preview__content_header_block_time} />
           </div>
         </div>

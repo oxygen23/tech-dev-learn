@@ -33,6 +33,7 @@ export type AppThunkDispatch = ThunkDispatch<AppState, void, AnyAction>;
 export const wrapper = createWrapper<AppStore>(makeStore);
 
 export const useWrappedStore = (appProps: NonNullable<unknown>) => {
+  // eslint-disable-next-line
   const { store, props } = wrapper.useWrappedStore(appProps);
   const { pageProps } = props as { pageProps: NonNullable<unknown> };
 

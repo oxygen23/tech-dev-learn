@@ -2,17 +2,17 @@
 @import url("https://fonts.googleapis.com/css2?family=Poppins&display=swap")
 
 /*Обнуление*/
-* 
-   padding: 0
-   margin: 0
-   border: 0
+*
+    padding: 0
+    margin: 0
+    border: 0
 
 *,
 *::before,
 *::after
     box-sizing: border-box
 
-:focus, :active 
+:focus, :active
     outline: none
     a:focus, a:active
         outline: none
@@ -21,7 +21,7 @@ nav,footer,header,aside
     display: block
 
 input,button,textarea
-    font-family:inherit
+    font-family: inherit
 
 input::-ms-clear
     display: none
@@ -47,48 +47,44 @@ img
     vertical-align: top
 
 h1,h2,h3,h4,h5,h6
-    font-size:inherit
+    font-size: inherit
     font-weight: 400
 
 a
     text-decoration: none
     color: inherit
 
-
 /*----------------------------------------*/
-  
-:root
-  --font-poppins: "Poppins", sans-serif
 
 ::-webkit-scrollbar
-  width: 10px
-  background-color: $fiolCircle
-  border-radius: 10px 10px 10px 10px
-  overflow: hidden
-  padding-top: 40px
+    width: 10px
+    background-color: $fiolCircle
+    border-radius: 10px 10px 10px 10px
+    overflow: hidden
+    padding-top: 40px
 
 ::-webkit-scrollbar-thumb
-  background-color: $orange
-  border-radius: 10px 10px 10px 10px
+    background-color: $orange
+    border-radius: 10px 10px 10px 10px
 #__next
-  font-weight: 500
-  font-size: 20px
-  background-color: $fiol
-  font-family: var(--font-poppins)
-  padding: 24px
-  padding-left: 62px
-  display: flex
-  justify-content: space-between
-  transition: all .3s linear
-  &:has(.noVisible)
-    padding-left: 30px
+    font-weight: 500
+    font-size: 20px
+    background-color: $fiol
+    font-family: Poppins, sans-serif
+    padding: 24px
+    padding-left: 62px
+    display: flex
+    justify-content: space-between
+    transition: all .3s linear
+    &:has(.noVisible)
+        padding-left: 30px
 .main
-  position: relative
-  z-index: 9999
-  background-color: #fff
-  height: calc(100vh - 48px)
-  width: 100%
-  border-radius: 48px
-  padding: 48px 68px
-  overflow: hidden
-  transition: all .5s ease-in-out
+    position: relative
+    z-index: 9999
+    background-color: #fff
+    height: calc(100vh - 48px)
+    width: 100%
+    border-radius: 48px
+    padding: 48px 68px
+    overflow: hidden
+    transition: all .5s ease-in-out

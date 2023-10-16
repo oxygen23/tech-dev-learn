@@ -15,8 +15,12 @@ interface CoursePageProps {
 }
 
 const CoursePage: NextPage<CoursePageProps> = ({ course }) => {
-  const [currentLesson, setCurrentLesson] = useState(0);
+  const [currentLesson, setCurrentLesson] = useState<number>(0);
+  const [currentSubLesson, setCurrentSubLesson] = useState<number>(0);
 
+  // console.log(
+  //   `CurrentLesson ${currentLesson}, CurrentSubLesson ${currentSubLesson}`,
+  // );
   return (
     <>
       <NextSeo title={course.title} />
@@ -29,10 +33,19 @@ const CoursePage: NextPage<CoursePageProps> = ({ course }) => {
             marginBottom={28}
           />
           <div className={styles.empty__block} />
-          <CourseInfoBlock course={course} />
+          <CourseInfoBlock
+            course={course}
+            currentLesson={currentLesson}
+            currentSubLesson={currentSubLesson}
+          />
+          <div />
         </div>
         <div className={styles.wrapper_right}>
-          <LessonsList lessonsList={course.lessons_wrapper} />
+          <LessonsList
+            lessonsList={course.lessons_wrapper}
+            fnCurrentLesson={setCurrentLesson}
+            fnCurrentSubLesson={setCurrentSubLesson}
+          />
         </div>
       </div>
     </>
@@ -41,7 +54,7 @@ const CoursePage: NextPage<CoursePageProps> = ({ course }) => {
 
 export default CoursePage;
 
-export const getServerSideProps = wrapper.getServerSideProps(
+export const getServerSideProps = wrapper.getStaticProps(
   () => async (context) => {
     const { params } = context;
     let id;

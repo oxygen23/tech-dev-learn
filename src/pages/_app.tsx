@@ -1,20 +1,27 @@
 import Aside from '@/components/aside/Aside';
 import MainLayout from '@/layouts/mainLayout';
-import { wrapper } from '@/redux/store';
+import { useWrappedStore } from '@/redux/store';
 import '@/styles/index.sass';
 import PageWrapper from '@/utils/PageWrapper';
-import type { AppProps } from 'next/app';
+import { NextPage } from 'next';
+import { AppProps } from 'next/app';
 import { Provider } from 'react-redux';
 
-const App = ({ Component, ...rest }: AppProps) => {
-  const { store, props } = wrapper.useWrappedStore(rest);
+import { ComponentType } from 'react';
 
+const App: NextPage<AppProps> = ({
+  Component,
+  ...rest
+}: {
+  Component: ComponentType;
+}) => {
+  const { store, pageProps } = useWrappedStore(rest);
   return (
     <Provider store={store}>
       <PageWrapper>
         <Aside />
         <MainLayout>
-          <Component {...props.pageProps} />
+          <Component {...pageProps} />
         </MainLayout>
       </PageWrapper>
     </Provider>

@@ -5,10 +5,8 @@ const Document: FC = () => {
   return (
     <Html lang="ru">
       <Head />
-      <body>
-        <Main />
-        <NextScript />
-      </body>
+      <Main />
+      <NextScript />
     </Html>
   );
 };

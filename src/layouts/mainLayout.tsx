@@ -1,7 +1,7 @@
 import Header from '@/components/header/Header';
+import { Poppins } from 'next/font/google';
 import { usePathname } from 'next/navigation';
 import React, { ReactNode, useEffect, useState } from 'react';
-import { Poppins } from 'next/font/google';
 
 interface Props {
   children: ReactNode;
@@ -15,13 +15,12 @@ const poppins = Poppins({
 const MainLayout: React.FC<Props> = ({ children }) => {
   const [visible, setVisible] = useState(false);
   const path = usePathname();
-
   useEffect(() => {
     if (
-      path === '/favorites' ||
-      path === '/allCourses' ||
-      path === '/progress' ||
-      path === '/'
+      path === '/favorites'
+      || path === '/allCourses'
+      || path === '/progress'
+      || path === '/'
     ) {
       setVisible(true);
     } else {

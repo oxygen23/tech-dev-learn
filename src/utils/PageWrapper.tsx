@@ -1,5 +1,6 @@
 import { usePathname } from 'next/navigation';
 import { useEffect } from 'react';
+
 import { ChildrenProps } from './Utils';
 
 const PageWrapper = ({ children }: ChildrenProps): JSX.Element => {

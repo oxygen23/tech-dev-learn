@@ -1,19 +1,20 @@
 import { Lesson } from '@/types/Lesson';
 import { FC } from 'react';
+
 import styles from './SubLesson.module.sass';
 
 interface SublessonsComp {
-  sublesson: Lesson;
-  id: number;
-  fnCurrentSubLesson: (id: number) => void;
   fnCurrentLesson: (id: number) => void;
+  fnCurrentSubLesson: (id: number) => void;
+  id: number;
+  sublesson: Lesson;
 }
 
-const SubLessons: FC<SublessonsComp> = ({
-  sublesson,
-  id,
-  fnCurrentSubLesson,
+const SubLesson: FC<SublessonsComp> = ({
   fnCurrentLesson,
+  fnCurrentSubLesson,
+  id,
+  sublesson,
 }) => {
   const fnCurrentDescription = (idArg: number, sublessonArg: Lesson) => {
     fnCurrentLesson(idArg);
@@ -22,15 +23,19 @@ const SubLessons: FC<SublessonsComp> = ({
 
   return (
     <button
-      type="button"
       className={styles.wrapper}
       onClick={() => fnCurrentDescription(id, sublesson)}
+      type="button"
     >
       <span className={styles.title}>
-        {id}.{sublesson?.id} {sublesson?.title}
+        {id}
+        .
+        {sublesson?.id}
+        {' '}
+        {sublesson?.title}
       </span>
     </button>
   );
 };
 
-export default SubLessons;
+export default SubLesson;

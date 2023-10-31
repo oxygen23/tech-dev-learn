@@ -1,6 +1,7 @@
 import { Course } from '@/types/Course';
 import { useState } from 'react';
 import { AiFillHeart, AiOutlineHeart } from 'react-icons/ai';
+
 import styles from './ButtonFavorite.module.sass';
 
 interface ButtonsFavoriteProps {
@@ -19,7 +20,7 @@ const ButtonFavorites: React.FC<ButtonsFavoriteProps> = () => {
   // }, [favorites, item.id]);
 
   return (
-    <button type="button" className={styles.button}>
+    <button className={styles.button} type="button">
       {isFavorite ? (
         <AiFillHeart className={styles.isFavorite} />
       ) : (

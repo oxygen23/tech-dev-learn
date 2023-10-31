@@ -1,17 +1,17 @@
 import { LessonsWrapper } from './LessonWrapper';
 
 export interface CoursesStarted {
-  id: number;
   author: string;
   author_id: number;
-  author_link: string;
   author_image: string;
-  course_image: string;
-  title: string;
-  description: string;
-  course_time: number;
-  course_likes: number;
+  author_link: string;
   course_dislikes: number;
+  course_image: string;
+  course_likes: number;
+  course_time: number;
+  description: string;
   favorite_count_courses: number;
+  id: number;
   lessons_wrapper: LessonsWrapper[];
+  title: string;
 }

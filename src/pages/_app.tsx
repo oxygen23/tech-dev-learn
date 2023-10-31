@@ -5,17 +5,19 @@ import '@/styles/index.sass';
 import PageWrapper from '@/utils/PageWrapper';
 import { NextPage } from 'next';
 import { AppProps } from 'next/app';
+import { NextRouter } from 'next/router';
+import { ComponentType } from 'react';
 import { Provider } from 'react-redux';
 
-import { ComponentType } from 'react';
-
-const App: NextPage<AppProps> = ({
+const App: NextPage<AppProps & { router: NextRouter }> = ({
   Component,
+  router,
   ...rest
 }: {
   Component: ComponentType;
+  router: NextRouter;
 }) => {
-  const { store, pageProps } = useWrappedStore(rest);
+  const { pageProps, store } = useWrappedStore(rest);
   return (
     <Provider store={store}>
       <PageWrapper>

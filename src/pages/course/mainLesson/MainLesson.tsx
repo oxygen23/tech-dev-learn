@@ -1,7 +1,5 @@
 import { FC } from 'react';
 
-const MainLesson: FC = () => {
-  return <div>MainLesson</div>;
-};
+const MainLesson: FC = () => <div>MainLesson</div>;
 
 export default MainLesson;

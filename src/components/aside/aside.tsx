@@ -2,6 +2,7 @@ import Image from 'next/image';
 import { usePathname } from 'next/navigation';
 import { FC, useEffect, useState } from 'react';
 import { BiSupport } from 'react-icons/bi';
+
 import ButtonsAside from '../buttons/ButtonsAside';
 import Logo from '../logo/Logo';
 import styles from './Aside.module.sass';
@@ -13,10 +14,10 @@ const Aside: FC = () => {
 
   useEffect(() => {
     if (
-      path === '/favorites' ||
-      path === '/allCourses' ||
-      path === '/progress' ||
-      path === '/'
+      path === '/favorites'
+      || path === '/allCourses'
+      || path === '/progress'
+      || path === '/'
     ) {
       setVisible(true);
     } else {
@@ -49,19 +50,19 @@ const Aside: FC = () => {
               <a
                 className={styles.support__block_link}
                 href="https://t.me/oxygenfront"
-                target="_blank"
                 rel="noopener noreferrer"
+                target="_blank"
               >
                 Телеграм
               </a>
             </div>
             <div className={styles.support__circle}>
               <Image
-                src="/assets/human_worked.png"
                 alt="decor_png"
                 className={styles.support__circle_image}
-                width={124}
                 height={175}
+                src="/assets/human_worked.png"
+                width={124}
               />
             </div>
           </div>
@@ -69,10 +70,10 @@ const Aside: FC = () => {
       ) : (
         <div className={`${styles.support__block} ${styles.wrapper}`}>
           <a
-            href="https://t.me/oxygenfront"
-            target="_blank"
-            rel="noopener noreferrer"
             className={`${styles.support__block} ${styles.wrapper} ${styles.icon}`}
+            href="https://t.me/oxygenfront"
+            rel="noopener noreferrer"
+            target="_blank"
           >
             <BiSupport />
           </a>

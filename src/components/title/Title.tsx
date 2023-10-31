@@ -1,18 +1,20 @@
 import React from 'react';
+
 import styles from './Title.module.sass';
 
 interface TitleProps {
-  title: string;
-  titleLayer: number;
   fontSize?: number;
   marginBottom?: number;
+  title: string;
+  titleLayer: number;
 }
 
 const Title: React.FC<TitleProps> = ({
-  title,
-  titleLayer,
+  children,
   fontSize,
   marginBottom,
+  title,
+  titleLayer,
 }) => {
   let Tag: keyof JSX.IntrinsicElements = 'h6';
   if (titleLayer >= 1 && titleLayer <= 6) {
@@ -28,6 +30,8 @@ const Title: React.FC<TitleProps> = ({
   return (
     <Tag className={styles.title} style={style}>
       {title}
+      {' '}
+      {children}
     </Tag>
   );
 };

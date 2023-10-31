@@ -1,56 +1,41 @@
 import axios from '@/axios.js';
+import CourseInfoBlock from '@/components/courseInfoBlock/CourseInfoBlock';
+import Title from '@/components/title/Title';
 import { wrapper } from '@/redux/store';
 import { Course } from '@/types/Course';
+import { AxiosResponse } from 'axios';
 import { NextPage } from 'next';
 import { NextSeo } from 'next-seo';
-import { useState } from 'react';
-import Title from '@/components/title/Title';
-import CourseInfoBlock from '@/components/courseInfoBlock/CourseInfoBlock';
-import { AxiosResponse } from 'axios';
+
 import styles from './Course.module.sass';
+import { CourseContextProvider } from './CourseContext';
 import LessonsList from './lessonsList/LessonsList';
 
 interface CoursePageProps {
   course: Course;
 }
 
-const CoursePage: NextPage<CoursePageProps> = ({ course }) => {
-  const [currentLesson, setCurrentLesson] = useState<number>(0);
-  const [currentSubLesson, setCurrentSubLesson] = useState<number>(0);
-
-  // console.log(
-  //   `CurrentLesson ${currentLesson}, CurrentSubLesson ${currentSubLesson}`,
-  // );
-  return (
-    <>
-      <NextSeo title={course.title} />
-      <div className={styles.wrapper}>
-        <div className={styles.wrapper_left}>
-          <Title
-            title={course.title}
-            titleLayer={1}
-            fontSize={40}
-            marginBottom={28}
-          />
-          <div className={styles.empty__block} />
-          <CourseInfoBlock
-            course={course}
-            currentLesson={currentLesson}
-            currentSubLesson={currentSubLesson}
-          />
-          <div />
-        </div>
-        <div className={styles.wrapper_right}>
-          <LessonsList
-            lessonsList={course.lessons_wrapper}
-            fnCurrentLesson={setCurrentLesson}
-            fnCurrentSubLesson={setCurrentSubLesson}
-          />
-        </div>
+const CoursePage: NextPage<CoursePageProps> = ({ course }) => (
+  <CourseContextProvider>
+    <NextSeo title={course.title} />
+    <div className={styles.wrapper}>
+      <div className={styles.wrapper_left}>
+        <Title
+          fontSize={40}
+          marginBottom={28}
+          title={course.title}
+          titleLayer={1}
+        />
+        <div className={styles.empty__block} />
+        <CourseInfoBlock course={course} />
+        <div />
       </div>
-    </>
-  );
-};
+      <div className={styles.wrapper_right}>
+        <LessonsList lessonsList={course.lessons_wrapper} />
+      </div>
+    </div>
+  </CourseContextProvider>
+);
 
 export default CoursePage;
 

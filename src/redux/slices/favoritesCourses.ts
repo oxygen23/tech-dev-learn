@@ -1,5 +1,6 @@
 import { Course } from '@/types/Course';
 import { PayloadAction, createSlice } from '@reduxjs/toolkit';
+
 import { AppState } from '../store';
 
 interface FavoriteState {
@@ -11,8 +12,8 @@ const initialState: FavoriteState = {
 };
 
 const FavoritesCourses = createSlice({
-  name: 'FavoritesCourses',
   initialState,
+  name: 'FavoritesCourses',
   reducers: {
     changeFavorite: (state, action: PayloadAction<Course>) => {
       const isFavorite = state.favorites.some(

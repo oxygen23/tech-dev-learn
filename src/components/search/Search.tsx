@@ -35,20 +35,20 @@ const Search: React.FC = () => {
       <div className={styles.search__wrapper}>
         <BsSearch className={styles.search__button} />
         <input
-          value={inputValue}
-          onChange={fnInputValue}
-          onKeyDown={handleKeyDown}
-          onFocus={handleFocus}
-          onBlur={handleBlur}
-          type="text"
-          placeholder="Поиск курсов"
           className={styles.search__input}
+          onBlur={handleBlur}
+          onChange={fnInputValue}
+          onFocus={handleFocus}
+          onKeyDown={handleKeyDown}
+          placeholder="Поиск курсов"
+          type="text"
+          value={inputValue}
         />
       </div>
       <button
-        type="button"
         className={styles.search__button}
         onClick={performSearch}
+        type="button"
       >
         <AiOutlineEnter />
       </button>

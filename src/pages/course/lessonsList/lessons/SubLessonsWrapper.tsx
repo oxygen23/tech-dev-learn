@@ -1,20 +1,21 @@
 import { LessonsWrapper } from '@/types/LessonWrapper';
 import { FC, useState } from 'react';
-import SubLessons from './SubLessons';
+
+import SubLesson from './SubLesson';
 import styles from './SubLessonsWrapper.module.sass';
 
 interface LessonComp {
-  lesson: LessonsWrapper;
   countingLesson: number;
   fnCurrentLesson: (id: number) => void;
   fnCurrentSubLesson: (id: number) => void;
+  lesson: LessonsWrapper;
 }
 
 const SubLessonsWrapper: FC<LessonComp> = ({
-  lesson,
   countingLesson,
   fnCurrentLesson,
   fnCurrentSubLesson,
+  lesson,
 }) => {
   const [currentLesson, setCurrentLesson] = useState<null | number>(null);
 
@@ -25,12 +26,13 @@ const SubLessonsWrapper: FC<LessonComp> = ({
       setCurrentLesson(null);
     }
   };
+
   return (
     <div className={styles.wrapper}>
       <button
-        type="button"
         className={styles.wrapper_lesson}
         onClick={() => handleCurrentLesson(lesson?.id)}
+        type="button"
       >
         <div className={styles.icon_block} />
         <div
@@ -41,10 +43,16 @@ const SubLessonsWrapper: FC<LessonComp> = ({
               : undefined
           }
         >
-          <div className={styles.title}>Тема урока {lesson?.title}</div>
+          <div className={styles.title}>
+            Тема урока
+            {' '}
+            {lesson?.title}
+          </div>
           <div className={styles.subtitle}>
             <div className={styles.counting_lesson}>
-              Lesson {countingLesson}
+              Lesson
+              {' '}
+              {countingLesson}
             </div>
             <span className={styles.dot} />
             <div className={styles.counting_cards}>5 карточек</div>
@@ -54,12 +62,12 @@ const SubLessonsWrapper: FC<LessonComp> = ({
       {currentLesson === lesson?.id && (
         <div className={styles.wrapper_sublessons}>
           {lesson.lessons.map((item, index) => (
-            <SubLessons
-              sublesson={item}
-              key={index}
-              id={lesson?.id}
-              fnCurrentSubLesson={fnCurrentSubLesson}
+            <SubLesson
               fnCurrentLesson={fnCurrentLesson}
+              fnCurrentSubLesson={fnCurrentSubLesson}
+              id={lesson?.id}
+              key={index}
+              sublesson={item}
             />
           ))}
         </div>

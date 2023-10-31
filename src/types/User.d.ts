@@ -1,11 +1,14 @@
-import { CoursesStarted } from './CoursesStarted';
-
 export interface User {
-  id: number;
-  name: string;
-  last_name: string;
   count_courses: number;
-  likes: number;
+  coursers_dislikes: number[];
+  courses_favorite: number[];
+  courses_likes: number[];
+  courses_started: number[];
   dislikes: number;
-  courses_started: CoursesStarted[];
+  id: number;
+  last_name: string;
+  lesson_dislikes: number[];
+  lesson_likes: number[];
+  likes: number;
+  name: string;
 }

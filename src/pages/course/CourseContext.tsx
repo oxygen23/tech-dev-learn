@@ -17,8 +17,7 @@ export const CourseContext = createContext<CourseContextType>({
   setCurrentLesson: () => {},
   setCurrentSubLesson: () => {},
 });
-
-export const CourseContextProvider = ({
+const CourseContextProvider = ({
   children,
 }: CourseContextProviderProps) => {
   const [currentLesson, setCurrentLesson] = useState(0);
@@ -37,3 +36,5 @@ export const CourseContextProvider = ({
     </CourseContext.Provider>
   );
 };
+
+export default CourseContextProvider;

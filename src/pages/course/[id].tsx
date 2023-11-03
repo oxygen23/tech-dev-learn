@@ -8,7 +8,7 @@ import { NextPage } from 'next';
 import { NextSeo } from 'next-seo';
 
 import styles from './Course.module.sass';
-import { CourseContextProvider } from './CourseContext';
+import CourseContextProvider from './CourseContext';
 import LessonsList from './lessonsList/LessonsList';
 
 interface CoursePageProps {

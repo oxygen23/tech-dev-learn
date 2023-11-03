@@ -7,6 +7,7 @@ import { Course } from '@/types/Course';
 import { User } from '@/types/User';
 import { AxiosResponse } from 'axios';
 import { GetServerSideProps, NextPage } from 'next';
+import Link from 'next/link';
 import { NextSeo } from 'next-seo';
 
 import styles from './Home.module.sass';
@@ -27,11 +28,11 @@ const Home: NextPage<HomeProps> = ({ courses, unfinishedCourses }) => {
       <div className={styles.home}>
         <div className={styles.home__unfinnished}>
           <Title title="Твои незаконченные курсы" titleLayer={1}>
-            <button className={styles.home__title_button} type="button">
+            <Link className={styles.home__title_button} href="/unfinnishedCourses" type="button">
               <span className={styles.home__title_button_item} />
               <span className={styles.home__title_button_item} />
               <span className={styles.home__title_button_item} />
-            </button>
+            </Link>
           </Title>
           <div className={styles.home__unfinnished_block}>
             <UnfinishedCourses
@@ -42,11 +43,11 @@ const Home: NextPage<HomeProps> = ({ courses, unfinishedCourses }) => {
         </div>
         <div className={styles.home__popular}>
           <Title title="Популярные курсы" titleLayer={2}>
-            <button className={styles.home__title_button} type="button">
+            <Link className={styles.home__title_button} href="/popularCourses" type="button">
               <span className={styles.home__title_button_item} />
               <span className={styles.home__title_button_item} />
               <span className={styles.home__title_button_item} />
-            </button>
+            </Link>
           </Title>
           <div className={styles.home__authors}>
             <PopularCourses courses={sortedCourses} />

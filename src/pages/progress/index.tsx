@@ -1,10 +1,11 @@
+import Title from '@/components/title/Title';
 import { NextPage } from 'next';
 import { NextSeo } from 'next-seo';
 
 const Progress: NextPage = () => (
   <>
     <NextSeo title="Прогресс" />
-    <div>Твой Прогресс</div>
+    <Title title="Твой Прогресс" titleLayer={1} />
   </>
 );
 

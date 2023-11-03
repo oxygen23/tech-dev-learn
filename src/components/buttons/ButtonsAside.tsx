@@ -3,6 +3,7 @@ import { useEffect, useMemo, useState } from 'react';
 import { AiOutlineHeart, AiOutlineHome } from 'react-icons/ai';
 import { GiProgression } from 'react-icons/gi';
 import { HiOutlineViewGridAdd } from 'react-icons/hi';
+
 import styles from './ButtonsAside.module.sass';
 
 interface ButtonsAsideProps {
@@ -111,10 +112,10 @@ const ButtonsAside: React.FC<ButtonsAsideProps> = ({ visible }) => {
         )}
         {buttons.map((item, index) => (
           <Link
-            onClick={() => setPage(index)}
+            className={currentClassName(index)}
             href={`${links[index]}`}
             key={index}
-            className={currentClassName(index)}
+            onClick={() => setPage(index)}
           >
             {renderIcons(item)}
             {visible ? (

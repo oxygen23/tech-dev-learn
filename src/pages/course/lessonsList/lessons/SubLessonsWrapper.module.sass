@@ -1,17 +1,20 @@
 @import '/src/styles/components/_variables.sass'
 
 .wrapper
-  width: 100%
-  minheight: 100px
   &_info
     width: calc(100% - 70px)
     padding-bottom: 20px
     border-bottom: 2px solid $grey
+    background: none
+    transition: border-bottom .8s ease
   &_lesson
     display: flex
     align-items: center
     column-gap: 20px
     background: none
+    &:not(:last-child)
+      margin-bottom: 30px
+    // min-height: 100px
   &_sublessons
     display: flex
     flex-direction: column
@@ -36,7 +39,21 @@
   background-color: $grey
   border-radius: 50%
 .icon_block
+  display: flex
+  justify-content: center
+  align-items: center
   width: 70px
   height: 70px
   background-color: $orange
   border-radius: 16px
+  &::after
+    display: block
+    content: ''
+    width: 20px
+    height: 20px
+    border-right: 3px solid white
+    border-bottom: 3px solid white
+    transform: rotate(45deg)
+    transition: transform .3s ease-in-out
+  &.active::after
+    transform: rotate(225deg)

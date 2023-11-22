@@ -1,16 +1,16 @@
+import ButtonFavorites from '@/components/buttons/ButtonFavorite';
 import { Course } from '@/types/Course';
 import Image from 'next/image';
 import Link from 'next/link';
 import { FC } from 'react';
 
-import ButtonFavorites from '../buttons/ButtonFavorite';
 import styles from './PrevewCourse.module.sass';
 
 interface PreviewCourseProps {
   item: Course;
 }
 const PreviewCourse: FC<PreviewCourseProps> = ({ item }) => (
-  <Link className={styles.preview} href={`/course/${item.id}`}>
+  <div className={styles.preview}>
     <Image
       alt="Фоновое изображение"
       className={styles.preview__background}
@@ -46,13 +46,16 @@ const PreviewCourse: FC<PreviewCourseProps> = ({ item }) => (
         </div>
         <div className={styles.preview__content_header_block}>
           <ButtonFavorites item={item} />
-          <div className={styles.preview__content_header_block_time} />
+          <div className={styles.preview__content_header_block_time}>
+            {item.lessons_wrapper.length}
+            {' '}
+            урока
+          </div>
         </div>
       </div>
       <p className={styles.preview__content_title}>{item.title}</p>
       <div className={styles.preview__content_bottom}>{item.description}</div>
     </div>
-  </Link>
+  </div>
 );
-
 export default PreviewCourse;

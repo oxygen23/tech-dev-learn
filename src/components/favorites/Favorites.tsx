@@ -1,30 +1,30 @@
+import Title from '@/components/title/Title';
+import { selectFavorites } from '@/redux/slices/favoritesCourses';
+import { Course } from '@/types/Course';
 import { FC } from 'react';
+import { useSelector } from 'react-redux';
 
-import Title from '../title/Title';
+import PreviewCourse from '../previewCourse/PreviewCourse';
 
-const Favorites: FC = () => (
-  // const dispatch = useAppDispatch();
-  // const { favorites } = useSelector(selectFavorites);
+const Favorites: FC = () => {
+  const { favorites } = useSelector(selectFavorites);
 
-  // function handleChangeFavorite(course: RootCourse) {
-  // dispatch(changeFavorite(course));
-  // }
-  <>
-    <Title title="Твои избранныне курсы" titleLayer={1} />
-    <div className="wrapper">
-      {/* {favorites?.length > 0 ? (
-          favorites.map((item: RootCourse, index: number) => (
+  return (
+    <>
+      <Title title="Твои избранныне курсы" titleLayer={1} />
+      <div className="wrapper allCourses">
+        {favorites?.length ? (
+          favorites.map((item: Course, index: number) => (
             <PreviewCourse
-              key={index}
               item={item}
-              fnFavorite={handleChangeFavorite}
+              key={index}
             />
           ))
         ) : (
-          <Title title={"У тебя нет курсов в избранном"} titleLayer={2} />
-        )} */}
-      Избранное
-    </div>
-  </>
-);
+          <Title title="У тебя нет курсов в избранном" titleLayer={2} />
+        )}
+      </div>
+    </>
+  );
+};
 export default Favorites;

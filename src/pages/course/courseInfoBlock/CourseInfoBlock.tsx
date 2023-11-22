@@ -1,3 +1,4 @@
+import Title from '@/components/title/Title';
 import { CourseContext } from '@/pages/course/CourseContext';
 import { Course } from '@/types/Course';
 import Image from 'next/image';
@@ -7,7 +8,6 @@ import {
 import { AiOutlineHeart, AiOutlineLike } from 'react-icons/ai';
 import { BiDislike } from 'react-icons/bi';
 
-import Title from '../title/Title';
 import styles from './CourseInfoBlock.module.sass';
 
 interface CoursePageProps {
@@ -15,7 +15,7 @@ interface CoursePageProps {
 }
 const CourseInfoBlock: FC<CoursePageProps> = ({ course }) => {
   const [currentDescription, setCurrentDescription] = useState<null | string>(
-    null,
+    '',
   );
 
   const contextValues = useContext(CourseContext);
@@ -31,7 +31,6 @@ const CourseInfoBlock: FC<CoursePageProps> = ({ course }) => {
       });
     });
   }, [course, contextValues.currentLesson, contextValues.currentSubLesson]);
-
   return (
     <>
       <div className={styles.author__block}>

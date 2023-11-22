@@ -1,4 +1,4 @@
-import { LessonsWrapper } from './LessonWrapper';
+import { LessonsWrapper } from './LessonsWrapper';
 
 export interface Course {
   author: string;

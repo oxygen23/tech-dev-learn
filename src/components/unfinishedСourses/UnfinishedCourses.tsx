@@ -1,7 +1,6 @@
+import PreviewCourse from '@/components/previewCourse/PreviewCourse';
 import { Course } from '@/types/Course';
 import { FC } from 'react';
-
-import PreviewCourse from '../previewCourse/PreviewCourse';
 
 interface IUnfinishedCourses {
   courses?: Course[];

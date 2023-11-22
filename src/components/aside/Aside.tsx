@@ -1,10 +1,10 @@
+import ButtonsAside from '@/components/buttons/ButtonsAside';
+import Logo from '@/components/logo/Logo';
 import Image from 'next/image';
 import { usePathname } from 'next/navigation';
 import { FC, useEffect, useState } from 'react';
 import { BiSupport } from 'react-icons/bi';
 
-import ButtonsAside from '../buttons/ButtonsAside';
-import Logo from '../logo/Logo';
 import styles from './Aside.module.sass';
 // import useWindowWidth from "@/hooks/useWindowWidth";
 const Aside: FC = () => {

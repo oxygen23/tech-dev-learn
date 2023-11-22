@@ -1,7 +1,6 @@
+import PreviewCourse from '@/components/previewCourse/PreviewCourse';
+import Title from '@/components/title/Title';
 import { Course } from '@/types/Course';
-
-import PreviewCourse from '../previewCourse/PreviewCourse';
-import Title from '../title/Title';
 
 interface AllCoursesProps {
   allCourses: Course[];

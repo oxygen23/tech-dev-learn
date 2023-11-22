@@ -1,6 +1,6 @@
 import axios from '@/axios.js';
-import CourseInfoBlock from '@/components/courseInfoBlock/CourseInfoBlock';
 import Title from '@/components/title/Title';
+import CourseInfoBlock from '@/pages/course/courseInfoBlock/CourseInfoBlock';
 import { wrapper } from '@/redux/store';
 import { Course } from '@/types/Course';
 import { AxiosResponse } from 'axios';

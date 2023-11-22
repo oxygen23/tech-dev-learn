@@ -23,6 +23,8 @@ const CourseContextProvider = ({
   const [currentLesson, setCurrentLesson] = useState(0);
   const [currentSubLesson, setCurrentSubLesson] = useState(0);
 
+  console.log(`currentLesson: ${currentLesson}\ncurrentSubLesson ${currentSubLesson}`);
+
   return (
     <CourseContext.Provider
       value={{
